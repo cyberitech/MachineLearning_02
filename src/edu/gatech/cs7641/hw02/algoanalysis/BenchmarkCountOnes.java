@@ -31,31 +31,30 @@ public class BenchmarkCountOnes extends GenericProblemBenchmarkUsingAlgo {
 
 
      protected ResultList test_rhc(int n_iter, int iter_step){
-        //NeighborFunction neigh_func = new SwapNeighbor();
-        //RandomizedHillClimbing hill_climber = new  RandomizedHillClimbing(new GenericHillClimbingProblem(fitness_func,dist,neigh_func));
-        //ResultList result_list = this.TestAlgo_N_Iterations(hill_climber,"rhc",fitness_func,"count-ones",n_iter,iter_step,sz);
-        //System.out.printf("[+] DONE: problem=count-ones algo=rhc psize=%d n_iter=%d iter_step=%d\n",sz,n_iter,iter_step);
-        //return result_list;
-         return new ResultList();
+        NeighborFunction neigh_func = new SwapNeighbor();
+        RandomizedHillClimbing hill_climber = new  RandomizedHillClimbing(new GenericHillClimbingProblem(fitness_func,dist,neigh_func));
+        ResultList result_list = this.TestAlgo_N_Iterations(hill_climber,"rhc",fitness_func,"count-ones",n_iter,iter_step,sz);
+        System.out.printf("[+] DONE: problem=count-ones algo=rhc psize=%d n_iter=%d iter_step=%d\n",sz,n_iter,iter_step);
+        return result_list;
+
 
     }
     protected  ResultList test_annealing(int n_iter, int iter_step){
-        //NeighborFunction neigh_func = new DiscreteChangeOneNeighbor(topology);
-       // SimulatedAnnealing annealer = new  SimulatedAnnealing(1E1,1,new GenericHillClimbingProblem(fitness_func,dist,neigh_func));
-       // ResultList result_list = this.TestAlgo_N_Iterations(annealer,"annealing",fitness_func,"count-ones",n_iter,iter_step,sz);
-       // System.out.printf("[+] DONE: problem=count-ones algo=annealing psize=%d n_iter=%d iter_step=%d\n",sz,n_iter,iter_step);
-      //  return result_list;
-        return new ResultList();
+        NeighborFunction neigh_func = new DiscreteChangeOneNeighbor(topology);
+        SimulatedAnnealing annealer = new  SimulatedAnnealing(1E1,1,new GenericHillClimbingProblem(fitness_func,dist,neigh_func));
+        ResultList result_list = this.TestAlgo_N_Iterations(annealer,"annealing",fitness_func,"count-ones",n_iter,iter_step,sz);
+        System.out.printf("[+] DONE: problem=count-ones algo=annealing psize=%d n_iter=%d iter_step=%d\n",sz,n_iter,iter_step);
+        return result_list;
+
     }
     protected  ResultList test_genetic(int n_iter, int iter_step){
-      //  MutationFunction mutator_func = new DiscreteChangeOneMutation(topology);
-      //  CrossoverFunction crossover_func = new UniformCrossOver();
-      //  GeneticAlgorithmProblem genetic = new GenericGeneticAlgorithmProblem(fitness_func,dist,mutator_func,crossover_func);
-       // StandardGeneticAlgorithm genetic_algo = new StandardGeneticAlgorithm(sz*4,sz,sz/10,genetic);
-       // ResultList result_list = this.TestAlgo_N_Iterations(genetic_algo,"genetic",fitness_func,"count-ones",n_iter,iter_step,sz);
-       // System.out.printf("[+] DONE: problem=count-ones algo=genetic psize=%d n_iter=%d iter_step=%d\n",sz,n_iter,iter_step);
-       // return result_list;
-        return new ResultList();
+        MutationFunction mutator_func = new DiscreteChangeOneMutation(topology);
+        CrossoverFunction crossover_func = new UniformCrossOver();
+        GeneticAlgorithmProblem genetic = new GenericGeneticAlgorithmProblem(fitness_func,dist,mutator_func,crossover_func);
+        StandardGeneticAlgorithm genetic_algo = new StandardGeneticAlgorithm(sz*4,sz,sz/10,genetic);
+        ResultList result_list = this.TestAlgo_N_Iterations(genetic_algo,"genetic",fitness_func,"count-ones",n_iter,iter_step,sz);
+        System.out.printf("[+] DONE: problem=count-ones algo=genetic psize=%d n_iter=%d iter_step=%d\n",sz,n_iter,iter_step);
+
     }
     protected  ResultList test_mimic(int n_iter, int iter_step){
         Distribution dist_tree = new DiscreteDependencyTree(.1);
