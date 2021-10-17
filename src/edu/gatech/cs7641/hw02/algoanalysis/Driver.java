@@ -44,10 +44,10 @@ public class Driver {
                 BenchmarkCountOnes countones = new BenchmarkCountOnes(problem_size*10, TRAIN_ITERATIONS_MAX/10, TRAIN_ITERATIONS_STEP/10);
                 BenchmarkTravelingSalesman salesman = new BenchmarkTravelingSalesman(problem_size, TRAIN_ITERATIONS_MAX, TRAIN_ITERATIONS_STEP);
 
-                //futures.add( new FutureBenchmark(nqueens));
-                //futures.add(new FutureBenchmark(fourpeaks));
+                futures.add( new FutureBenchmark(nqueens));
+                futures.add(new FutureBenchmark(fourpeaks));
                 futures.add(new FutureBenchmark(countones));
-                //futures.add(new FutureBenchmark(salesman));
+                futures.add(new FutureBenchmark(salesman));
             }
             ArrayList<Future<ResultList>> future_results = null;
             try {
